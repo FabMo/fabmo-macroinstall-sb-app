@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quick Launch</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <link href="css/pure-min.css" rel="stylesheet">
+    <link href="css/forms-min.css" rel="stylesheet">
+    <link href="css/grids-responsive-min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/fabmo.js"></script>
+  	<script type="text/javascript">
+  		var fabmo = new FabMoDashboard();
+      var editor;
+      var lang="gcode";
+      var source=null;
+      var source_data=null;
+      var job_description=null;
+      var job_title=null;
+  	</script>
+
+    <div class="container">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active"><a href="#tab-installmacro" role="tab" data-toggle="tab">Install Macros</a></li>
+        <li><a href="#tab-macroinfo" role="tab" data-toggle="tab">Macro Info</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <!-- Install Pane -->
+        <div class="tab-pane active" id="tab-installmacro">
+            <!-- ALL MACROS -->
+              <h3><a class="btn btn-success btn-lg" id="install-macroALL"> INSTALL Macros Handibot V1 </a></h3>
+          <hr width = "90%" noshade>
+    
+            <!-- INDIVIDUAL Macros -->
+              <span class="label label-warning"> INSTALL INDIVIDUALLY </span>
+              <h4><a class="btn btn-success" id="install-macro3bt"> INSTALL Macro#3 </a><span>  Set XYZ Zero Locations </span></h4>
+              <h4><a class="btn btn-success" id="install-macro6"> INSTALL Macro#6 </a><span>  Start Spindle</span></h4>
+              <h4><a class="btn btn-success" id="install-macro7"> INSTALL Macro#7 </a><span>  Stop Spindle</span></h4>
+              <h4><a class="btn btn-success" id="install-macro9"> INSTALL Macro#9 </a><span>  Tool Change</span></h4>
+              <h4><a class="btn btn-success" id="install-macro78"> INSTALL Macro#78 </a><span>  Manually Set Z-Zero</span></h4>
+              <h4><a class="btn btn-success" id="install-macro79"> INSTALL Macro#79 </a><span>  Park</span></h4>
+              <h4><a class="btn btn-success" id="install-macro90"> INSTALL Macro#90 </a><span>  MY_Variables</span></h4>
+              <h4><a class="btn btn-success" id="install-macro91"> INSTALL Macro#91 </a><span>  Change Unit type</span></h4>
+
+          <hr width = "90%" noshade>
+        </div> <!-- end Install Pane -->
+ 
+        <!-- Info Pane -->
+        <div class="tab-pane" id="tab-macroinfo">
+            <h2>Information About Handibot/FabMo <strong>MACROS</strong></h2>
+            <p><strong>Marcros</strong> are small, simple pieces of code that help you carry out useful tasks. They can be called <code>'scripts'</code> or <code>'canned cycles'</code> or even <code>'shortcuts'</code>. At ShopBot, we have been calling them <code>'custom cuts'</code> ... but 'MACRO' sounds less complex and more friendly so we'll be using that term in FabMo. Macros tend to be things you want to do over-and-over again so it is nice to be able to stash them away in a convenient place. Macros are found in the FabMo Macro Manager that you acceess from the left-side panel. There you can run, view, edit, and create Macros.
+            </p>
+            <h3>What's in a Macro?</h3>
+              <p>FabMo will eventually support the writing of Macros in a number of languages, but at the moment, Macros are created in the OpenSBP digital-fab language (the language used by ShopBots). We use OpenSBP simply because it is easily understood and readily programmed to generate flexible routines. You can explore OpenSBP in the SB4 App, where there is also documentation in the HELP menu. Or, you can explore a Macro like Macro#3 that will give you some pretty good tutoring on how to roll-your-own.</p>
+
+            <h3>What's this particular App All About?</h3>
+              <p>What this app does is install the Macros that are appropriate for your tool, or allow you to install 1 or more if you lose them or they get corrupted. You won't need an internet connection for the install, if you have the app on your tool. This Macro Install App, and others, are available from <strong>docs.handibot.com</strong>, so feel free to delete this app after you have made use it. You can do that from the FabMo Configuration Manager found on the left-side panel, Apps section.</p>
+
+            <div class="well" id="numbering-message">
+                  <p><strong>Macro Numbering Conventions</strong> </p>
+                  <p>In therory, you can number your Macros any way that you would like. However, ShopBot observes a couple of conventions. <strong>Macros# 1-9</strong> are used for a set of standard functions that are called by Job Files created in V-Carve and Fusions 360. Similarly, <strong>Macros# 90-99</strong> are used for ShopBot/Handibot functions. So working <strong>between #10 and #89 is best</strong> for your own Macros. In particular, we use Macro#3 for zeroing and Macros #6 and #7 for spindle control.</p>
+                  <p>Macros can be called from within Job Files that are written in OpenSBP. This allows them to function like subroutines or canned cycles. You will notice that files posted from a V-Carve Pro, for example will call Macros as a standard method for turning on and off the router/spindle.</p>
+                  <p>To make a call from your code, use the expression: <code> C#,xx </code> (where the Macro number is placed after the comma -- FYI, this is the format for ShopBot's CustomCut call). Using this convention, you can also call Macros from within Macros, or you can call a Macro from an App that you create.</p>
+              </div>
+
+          <hr width = "90%" noshade>
+        </div> <!-- end Info Pane -->
+
+      </div> <!-- tab content -->
+    </div><!-- container -->
+
+    <script src="js/macrofile.js"></script>
+    <script type="text/javascript">
+        fabmo.hideDRO();
+    </script>
+
+    <script type="text/javascript">
+        // Prevent a stray enter key from inadvertently submitting a form (and setting the tool in motion!)
+        $(document).ready(function() {
+          $(window).keydown(function(event){
+            if(event.keyCode == 13) {
+              event.preventDefault();
+              return false;
+            }
+          });
+        });
+    </script>
+
+  </body>
+
+</html>

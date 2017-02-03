@@ -1,0 +1,51 @@
+' Z-ZEROING ROUTINE
+' WRITTEN FOR FABMO PLATFORM
+' *... needs to add in use of Z prox switch
+
+IF %(25) = 1 THE GOTO MM
+	$my_ZzeroThickness := 0.121
+	$Zapproach_speed_fast := 1.0
+	$Zapproach_speed_slow := 0.25
+	$search_distance_z := -4.0
+	$backoff_z := 0.5
+GOTO SAVE_SPEED
+
+MM:
+    $my_ZzeroThickness := 3.073
+	$Zapproach_speed_fast := 25
+	$Zapproach_speed_slow := 6
+	$search_distance_z := -100
+	$backoff_z := 12
+
+SAVE_SPEED:
+'Save the Z speed
+&saved_speed = %(72)
+
+' Make sure we're off the switches
+IF %(51) = 1 THEN GOSUB backoff_z
+
+' Home the X-axis
+VS,&approach_speed_fast
+GOSUB approach_z
+GOSUB backoff_z
+VS,&approach_speed_slow
+GOSUB approach_z
+PAUSE 1
+VA,,,&plateThickness
+' * ... need to set table base 
+MZ,&backoff_z
+
+' Restore the Z speed
+VS,,&saved_speed
+END
+
+' SUBROUTINES BELOW HERE
+approach_z:
+   ON INPUT(1,1) RETURN
+   MZ, &search_distance_z
+   ' FAIL if we got here
+   END
+
+backoff_z:
+   JZ, %(3) + &backoff_z
+   RETURN
