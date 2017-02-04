@@ -29,7 +29,11 @@ function InstallMacro (numMacro,type_mac,name,description) {
       });
   });
 }
-// // Install ALL Desktop/Full Size
+
+// NOTE: There are subtle difference in the naming and descriptions of the same ("specific") macro across versions
+//        and different macros will be loaded
+
+// Install ALL Desktop/Full Size
 $("#install-macroALL").click(function(evt) {
     InstallMacro(2, "macros_specific","Z-Zero","Defines offset for Z-Zero location for #3, and sets Axis Zero for Z (use after changing cutter");
     InstallMacro(3, "macros_specific","Set XYZ Zero Locations","Automatically Set Axis Zero for XYZ");
