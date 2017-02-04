@@ -35,21 +35,15 @@ function InstallMacro (numMacro,type_mac,name,description) {
 
 // Install ALL Desktop/Full Size
 $("#install-macroALL").click(function(evt) {
-    InstallMacro(2, "macros_specific","Z-Zero","Defines offset for Z-Zero location for #3, and sets Axis Zero for Z (use after changing cutter");
-    InstallMacro(3, "macros_specific","Set XYZ Zero Locations","Automatically Set Axis Zero for XYZ");
+    InstallMacro(3, "macros_specific","Set XY Zero Locations","Automatically Set Axis Zero for XY");
     InstallMacro(6, "macros","Start Spindle","Start the spindle and pause for spin up");
     InstallMacro(7, "macros","Stop Spindle","Stop the spindle");
     InstallMacro(9, "macros","Tool Change","Use ATC or manual tool change");
-    InstallMacro(78, "macros","Manually Set Z-Zero","Set Zeroing from Prox for Z based on Current Location for use with Macro#3");
-    InstallMacro(79, "macros","Park","Move to Park Location");
     InstallMacro(90, "macros","MY_Variables","Load variables (with variable information)");
     InstallMacro(91, "macros","Change Unit type","Change Units");
 });
 
 // Install Individually
-$("#install-macro2").click(function(evt) {
-    InstallMacro(2, "macros_specific","Z-Zero","Defines offset for Z-Zero location for #3, and sets Axis Zero for Z (use after changing cutter");
-});
 $("#install-macro3").click(function(evt) {
     InstallMacro(3, "macros_specific","Set XYZ Zero Locations","Automatically Set Axis Zero for XYZ");
 });
@@ -61,9 +55,6 @@ $("#install-macro7").click(function(evt) {
 });
 $("#install-macro9").click(function(evt) {
     InstallMacro(9, "macros","Tool Change","Use ATC or manual tool change");
-});
-$("#install-macro78").click(function(evt) {
-    InstallMacro(78, "macros","Manually Set Z-Zero","Set Zeroing from prox for Z based on Current Location for use with Macro#3");
 });
 $("#install-macro90").click(function(evt) {
     InstallMacro(90, "macros","MY_Variables","Load variables (with variable information)");
