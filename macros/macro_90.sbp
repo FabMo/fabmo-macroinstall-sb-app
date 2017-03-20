@@ -1,18 +1,19 @@
 'SYSTEM / PERSISTENT VARIABLES with DEFAULTS ( ":=" syntax serves to set to default if not a value)
-' 2/2/17 th
+' 2/2/17, 3/16/17 th
 
-' ## needs to deal with units
-
-'For Zeroing Handibot V2.0
+'For Zeroing Desktop
 	$current_cutter_Zoffset := .25	'| These two variables added = distance from 0 (tip touching surface)
 	$zero_plate_adder := .75		'|	... to the Z top Hard-Stop
-	$x_backoff := .075
-	$y_backoff := .075
+	$x_backoff := .5
+	$y_backoff := .5
 
-'For Parking
-	$x_park := 3
-	$y_park := 7
-	$z_park := 1.5
+'For Parking (Separate variables available for inch and metric parking locations)
+	$x_park_in := 12
+	$y_park_in := 10
+	$z_park_in := 1.5
+	$x_park_mm := 300
+	$y_park_mm := 250
+	$z_park_mm := 40
 
 
 

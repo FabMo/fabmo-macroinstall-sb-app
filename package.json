@@ -3,7 +3,7 @@
   "main": "./index.html",
   "icon": "icon.png",
   "icon_color": "white",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Ted Hall + Ryan Sturmer + Jimmy Lucidarme",
   "website": "http://www.shopbot.com",
   "description": "Installing factory macros for a ShopBot ...",
