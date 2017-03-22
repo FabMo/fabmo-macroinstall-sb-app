@@ -18,3 +18,10 @@
 	$current_cutter_Zoffset = $current_cutter_Zoffset - &total_newTB_Zoffset
 	VA,,, 0,,,,,, 0
 
+END
+
+
+UNIT_ERROR:
+CN, 91                  'Run file switching units (automatically restored at end by FabMo?)
+RETURN
+END
