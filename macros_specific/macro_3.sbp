@@ -1,18 +1,18 @@
-'Set XYZ Zero Locations -- MACRO #3 -- [C3] in OpenSBP Language // HANDIBOT V1 VERSION (using prox switches)
+'Set XYZ Zero Locations -- MACRO #3 -- [C3] in OpenSBP Language // Desktop (using prox switches)
 ' ... written in OpenSBP; 3/1/2016; updated 11/10/16, 3/16/17 th **NOTE ISSUE WITH Z and VA call
 
  IF %(25)=1 THEN GOSUB UNIT_ERROR	'make sure we are in inches for doing zeroing, auto restore mm
 
  'Read Offset or Set to Default
     $current_cutter_Zoffset := .25
-    $x_backoff := .075
-    $y_backoff := .075
+    $x_backoff := .5
+    $y_backoff := .5
 
   'Local variables
    	&approach_speed_fast = 1.0
 	&approach_speed_slow = 0.25
-	&search_distance_x = -7.0
-	&search_distance_y = -9.0
+	&search_distance_x = 25.0
+	&search_distance_y = -19.0
 	&search_distance_z =  6.0
 
 ' Save the XY speed
